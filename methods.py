@@ -35,12 +35,12 @@ def get_drug_byid(id):
         "Id": drug.idDrug,
         "Name": drug.Name,
         "Price": drug.Price,
-        "Status": drug.idStatus
+        "idStatus": drug.idStatus
     }
     return json.dumps(drugJSON)
 
-def post_drug(id, name, price, status_id):
-    addeddrug = Drug(idDrug=id, name=name, price=price, idStatus=status_id)
+def post_drug(id, Name, Price, idStatus):
+    addeddrug = Drug(idDrug=id, Name=Name, Price=Price, idStatus=idStatus)
     session.add(addeddrug)
     session.commit()
     return 'Added a Drug with id %s' % id + get_drug_byid(id)
@@ -105,8 +105,8 @@ def get_user_byUserName(UserName):
     return json.dumps(userJSON)
 
 def post_user(id, UserName, firstName, lastName, email, password, phone):
-    addeduser = User(idUser=id, UserName=UserName, firstName=firstName, lastName=lastName,
-    email=email, password=password, phone=phone)
+    addeduser = User(idUser=id, UserName=UserName, FirstName=firstName, LastName=lastName,
+    Email=email, Password=password, Phone=phone)
     session.add(addeduser)
     session.commit()
     return 'Added a User with id %s' % id + get_user_byUserName(UserName)

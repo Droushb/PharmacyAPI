@@ -15,10 +15,10 @@ def drugs_get():
 
 @app.route('/drug', methods = ['POST'])
 def drug_post():
-       id = request.args.get('id', '')
-       name = request.args.get('name', '')
-       price = request.args.get('price', '')
-       status_id = request.args.get('status_id', '')
+       id = request.args.get('idDrug', '')
+       name = request.args.get('Name', '')
+       price = request.args.get('Price', '')
+       status_id = request.args.get('idStatus', '')
        return post_drug(id, name, price, status_id)
 
 @app.route('/drug/<id>', methods = ['GET'])
@@ -54,13 +54,13 @@ def user_get_byid(UserName):
 
 @app.route('/user', methods = ['POST'])
 def user_post():
-       id = request.args.get('id', '')
+       id = request.args.get('idUser', '')
        UserName = request.args.get('UserName', '')
-       firstName = request.args.get('firstName', '')
-       lastName = request.args.get('lastName', '')
-       email = request.args.get('email', '')
-       password = request.args.get('lastName', '')
-       phone = request.args.get('phone', '')
+       firstName = request.args.get('FirstName', '')
+       lastName = request.args.get('LastName', '')
+       email = request.args.get('Email', '')
+       password = request.args.get('Password', '')
+       phone = request.args.get('Phone', '')
        return post_user(id, UserName, firstName, lastName, email, password, phone)
 
 @app.route('/user/<UserName>', methods = ['PUT'])
@@ -70,7 +70,7 @@ def user_update(UserName):
        firstName = request.args.get('firstName', '')
        lastName = request.args.get('lastName', '')
        email = request.args.get('email', '')
-       password = request.args.get('lastName', '')
+       password = request.args.get('password', '')
        phone = request.args.get('phone', '')
        return update_user(id, UserName, firstName, lastName, email, password, phone)
 

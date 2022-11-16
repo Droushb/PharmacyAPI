@@ -42,7 +42,7 @@ class Drug(Base):
     Name = Column(String(45), nullable=False)
     Price =  Column(Integer, nullable=False)
     idStatus = Column(Integer, ForeignKey(Status.idStatus))
-    Status = relationship(Status, backref='Drug', lazy="joined")
+    # Status = relationship('Status', backref='Drug', lazy=True)
 
 class Order(Base):
     __tablename__ = 'Order'
